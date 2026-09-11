@@ -1,0 +1,63 @@
+{
+  "name": "Expense",
+  "type": "object",
+  "properties": {
+    "vendor_name": {
+      "type": "string",
+      "title": "Vendor Name"
+    },
+    "category": {
+      "type": "string",
+      "title": "Category"
+    },
+    "amount": {
+      "type": "number",
+      "title": "Amount"
+    },
+    "receipt_url": {
+      "type": "string",
+      "title": "Receipt URL"
+    },
+    "notes": {
+      "type": "string",
+      "title": "Notes"
+    },
+    "tax_deductible": {
+      "type": "boolean",
+      "title": "Tax Deductible"
+    },
+    "tax_reference": {
+      "type": "string",
+      "title": "Tax Reference / Invoice #"
+    },
+    "linked_income_id": {
+      "type": "string",
+      "title": "Linked Income (Surgical Case)"
+    },
+    "date": {
+      "type": "string",
+      "format": "date-time",
+      "title": "Date"
+    }
+  },
+  "required": [
+    "vendor_name",
+    "category",
+    "amount",
+    "date"
+  ],
+  "rls": {
+    "read": {
+      "created_by_id": "{{user.id}}"
+    },
+    "create": {
+      "created_by_id": "{{user.id}}"
+    },
+    "update": {
+      "created_by_id": "{{user.id}}"
+    },
+    "delete": {
+      "created_by_id": "{{user.id}}"
+    }
+  }
+}

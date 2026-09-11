@@ -1,0 +1,91 @@
+{
+  "name": "Income",
+  "type": "object",
+  "properties": {
+    "patient_id": {
+      "type": "string",
+      "title": "Patient Reference ID"
+    },
+    "patient_name": {
+      "type": "string",
+      "title": "Patient Name"
+    },
+    "category": {
+      "type": "string",
+      "title": "Category"
+    },
+    "is_surgical": {
+      "type": "boolean",
+      "title": "Is Surgical",
+      "default": false
+    },
+    "procedure_notes": {
+      "type": "string",
+      "title": "Procedure Notes"
+    },
+    "amount": {
+      "type": "number",
+      "title": "Amount"
+    },
+    "payment_method": {
+      "type": "string",
+      "title": "Payment Method",
+      "enum": [
+        "Cash",
+        "Insurance Claim",
+        "Bank Transfer"
+      ]
+    },
+    "payment_status": {
+      "type": "string",
+      "title": "Payment Status",
+      "enum": [
+        "Paid in Cash",
+        "Paid in Full",
+        "Pending Insurance Claim",
+        "Partial Payment"
+      ]
+    },
+    "anatomy": {
+      "type": "string",
+      "title": "Anatomy / Joint",
+      "enum": [
+        "Knee",
+        "Hip",
+        "Shoulder",
+        "Spine",
+        "Trauma/Fracture",
+        "Other"
+      ]
+    },
+    "surgical_facility": {
+      "type": "string",
+      "title": "Surgical Facility"
+    },
+    "date": {
+      "type": "string",
+      "format": "date-time",
+      "title": "Date"
+    }
+  },
+  "required": [
+    "patient_id",
+    "category",
+    "amount",
+    "date"
+  ],
+  "rls": {
+    "read": {
+      "created_by_id": "{{user.id}}"
+    },
+    "create": {
+      "created_by_id": "{{user.id}}"
+    },
+    "update": {
+      "created_by_id": "{{user.id}}"
+    },
+    "delete": {
+      "created_by_id": "{{user.id}}"
+    }
+  }
+}

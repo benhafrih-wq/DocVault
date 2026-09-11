@@ -1,0 +1,65 @@
+{
+  "name": "Patient",
+  "type": "object",
+  "properties": {
+    "patient_code": {
+      "type": "string",
+      "title": "Patient Code"
+    },
+    "full_name": {
+      "type": "string",
+      "title": "Full Name"
+    },
+    "phone_number": {
+      "type": "string",
+      "title": "Phone Number"
+    },
+    "age": {
+      "type": "integer",
+      "title": "Age"
+    },
+    "gender": {
+      "type": "string",
+      "title": "Gender",
+      "enum": [
+        "Male",
+        "Female"
+      ]
+    },
+    "primary_joint": {
+      "type": "string",
+      "title": "Primary Joint / Anatomy",
+      "enum": [
+        "Knee",
+        "Hip",
+        "Shoulder",
+        "Spine",
+        "Ankle/Foot",
+        "Hand/Wrist",
+        "General Trauma",
+        "Other"
+      ]
+    },
+    "notes": {
+      "type": "string",
+      "title": "Notes"
+    }
+  },
+  "required": [
+    "full_name"
+  ],
+  "rls": {
+    "read": {
+      "created_by_id": "{{user.id}}"
+    },
+    "create": {
+      "created_by_id": "{{user.id}}"
+    },
+    "update": {
+      "created_by_id": "{{user.id}}"
+    },
+    "delete": {
+      "created_by_id": "{{user.id}}"
+    }
+  }
+}
